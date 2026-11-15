@@ -3,7 +3,7 @@ import Hero from '../components/Hero.jsx'
 import Photo from '../components/Photo.jsx'
 import { Ambient, SectionHead } from '../components/Brand.jsx'
 import { PHOTOS } from '../data/photos.js'
-import { MAIN_ACTION } from '../data/site.js'
+import { MAIN_ACTION, url } from '../data/site.js'
 
 const COMPARISON = [
   ['Listening to an explanation', 'Working the idea out with your hands'],
@@ -28,7 +28,7 @@ export default function About() {
         title="About Unicorn Learning Lab"
         lead="A learning initiative that brings creativity, technology and practical work into education, for children, students and the schools and organisations that teach them."
         primary={MAIN_ACTION}
-        secondary={{ label: 'Read our approach', href: '/our-approach/' }}
+        secondary={{ label: 'Read our approach', href: url('/our-approach/') }}
         visual={PHOTOS.origami}
         photoPosition="50% 60%"
         chip="Learning by making"

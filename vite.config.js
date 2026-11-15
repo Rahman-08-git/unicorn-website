@@ -27,16 +27,22 @@ const PAGES = {
   notFound: { file: '404.html', path: null },
 }
 
+/*
+  BASE_PATH: where the site is served from. Leave unset for a domain of its own ('/').
+  The GitHub Pages workflow sets it to '/<repo-name>/' so links and images work in that subfolder.
+*/
+const BASE = ((process.env.BASE_PATH || '/').replace(/\/*$/, '/')).replace(/^\/*/, '/')
+
 const SHARED_HEAD = `
 <meta name="site-kind" content="other">
 <meta name="page-type" content="service">
 <meta name="theme-color" content="#0b1a4a">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
-<link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="${BASE}favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="${BASE}icon-192.png">
+<link rel="apple-touch-icon" href="${BASE}apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Unicorn Learning Lab">
-<meta property="og:image" content="/share.jpg">
+<meta property="og:image" content="${BASE}share.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
@@ -57,7 +63,7 @@ function siteHead(siteUrl) {
         if (base && page?.path) {
           const url = base + page.path
           out = out.replace('</head>', `<link rel="canonical" href="${url}">\n<meta property="og:url" content="${url}">\n</head>`)
-          out = out.replace('content="/share.jpg"', `content="${base}/share.jpg"`)
+          out = out.replace(`content="${BASE}share.jpg"`, `content="${base}/share.jpg"`)
         }
         return out
       },
@@ -82,6 +88,7 @@ function siteHead(siteUrl) {
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
   return {
+    base: BASE,
     plugins: [react(), siteHead(env.SITE_URL || process.env.SITE_URL)],
     build: {
       rollupOptions: {

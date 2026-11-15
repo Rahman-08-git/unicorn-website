@@ -4,7 +4,9 @@
   Unicorn Learning Lab's own learners or staff. Replace them with the lab's own photographs
   as they become available: keep the key, change the files, width, height and alt.
 */
-const img = (id) => `/assets/img/photo-${id}`
+import { BASE } from './site.js'
+
+const img = (id) => `${BASE}assets/img/photo-${id}`
 
 const photo = (id, width, height, alt, subject, big = 1920) => ({
   src: `${img(id)}.webp`,

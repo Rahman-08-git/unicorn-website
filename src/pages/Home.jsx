@@ -3,7 +3,7 @@ import { EmblemStage } from '../components/Hero.jsx'
 import Photo from '../components/Photo.jsx'
 import { Arrow, Ambient, Star, SplitWords, SectionHead } from '../components/Brand.jsx'
 import { PHOTOS } from '../data/photos.js'
-import { MAIN_ACTION } from '../data/site.js'
+import { MAIN_ACTION, url } from '../data/site.js'
 import { PRINCIPLES, SKILLS, OFFERINGS, AUDIENCES } from '../data/content.js'
 import { PRINCIPLE_ICONS, SKILL_ICONS, OFFER_ICONS, AUDIENCE_ICONS } from '../data/icons.js'
 
@@ -63,7 +63,7 @@ export default function Home() {
                 {MAIN_ACTION.label}
                 <Arrow />
               </a>
-              <a className="btn btn--ghost btn--lg" href="/what-we-do/">
+              <a className="btn btn--ghost btn--lg" href={url('/what-we-do/')}>
                 See what we do
               </a>
             </div>
@@ -145,7 +145,7 @@ export default function Home() {
                 ))}
               </ul>
               <p data-reveal style={{ '--d': 9 }}>
-                <a className="link" href="/about/">
+                <a className="link" href={url('/about/')}>
                   Read about the lab <ArrowRight aria-hidden="true" />
                 </a>
               </p>
@@ -186,7 +186,7 @@ export default function Home() {
             lead="They shape how a topic is introduced, explored and finished."
           />
           <div className="bento">
-            <a className="bento__feature" href="/our-approach/" data-reveal="scale">
+            <a className="bento__feature" href={url('/our-approach/')} data-reveal="scale">
               <Photo photo={PHOTOS.seedling} className="" sizes="(max-width: 1080px) 100vw, 40vw" />
               <span className="principle__num">01</span>
               <span className="icon-badge" style={{ background: 'rgba(255,255,255,.14)', color: '#fff' }}>
@@ -282,7 +282,7 @@ export default function Home() {
                     </span>
                     <h3>{o.title}</h3>
                     <p>{o.short}</p>
-                    <a className="link offer__more" href={`/what-we-do/#${o.id}`} aria-label={`Learn more about ${o.title}`}>
+                    <a className="link offer__more" href={url(`/what-we-do/#${o.id}`)} aria-label={`Learn more about ${o.title}`}>
                       Learn more <ArrowRight aria-hidden="true" />
                     </a>
                   </div>
@@ -321,7 +321,7 @@ export default function Home() {
             })}
           </ul>
           <p style={{ textAlign: 'center', marginTop: 40 }} data-reveal>
-            <a className="btn btn--outline" href="/what-we-do/#who-we-work-with">
+            <a className="btn btn--outline" href={url('/what-we-do/#who-we-work-with')}>
               <Sparkles aria-hidden="true" />
               Find your starting point
             </a>

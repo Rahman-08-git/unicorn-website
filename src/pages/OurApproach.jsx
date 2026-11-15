@@ -3,7 +3,7 @@ import Hero from '../components/Hero.jsx'
 import Photo from '../components/Photo.jsx'
 import { Ambient, SectionHead } from '../components/Brand.jsx'
 import { PHOTOS } from '../data/photos.js'
-import { MAIN_ACTION } from '../data/site.js'
+import { MAIN_ACTION, url } from '../data/site.js'
 import { SKILLS } from '../data/content.js'
 import { SKILL_ICONS } from '../data/icons.js'
 
@@ -61,7 +61,7 @@ export default function OurApproach() {
         title="How we approach learning"
         lead="Start with a question, work it out with your hands, finish by making something. It is simple to describe and takes care to do well, for every age and every group."
         primary={MAIN_ACTION}
-        secondary={{ label: 'See what we do', href: '/what-we-do/' }}
+        secondary={{ label: 'See what we do', href: url('/what-we-do/') }}
         visual={PHOTOS.pencilRow}
         chip="Question → explore → test → create"
       />

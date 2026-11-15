@@ -1,13 +1,13 @@
 import { ArrowRight } from 'lucide-react'
-import { SITE_NAME } from '../data/site.js'
+import { SITE_NAME, BASE, url } from '../data/site.js'
 
 /* The client's own emblem (logo.jpeg, cropped to its circle), never redrawn. */
 export function Emblem({ size = 96, className = 'brand-emblem', eager = false, decorative = true }) {
   return (
     <img
       className={className}
-      src={`/assets/logo/emblem-${size <= 96 ? 96 : size <= 192 ? 192 : size <= 384 ? 384 : 720}.webp`}
-      srcSet={size <= 96 ? '/assets/logo/emblem-96.webp 1x, /assets/logo/emblem-192.webp 2x' : undefined}
+      src={`${BASE}assets/logo/emblem-${size <= 96 ? 96 : size <= 192 ? 192 : size <= 384 ? 384 : 720}.webp`}
+      srcSet={size <= 96 ? `${BASE}assets/logo/emblem-96.webp 1x, ${BASE}assets/logo/emblem-192.webp 2x` : undefined}
       width={size}
       height={size}
       alt={decorative ? '' : 'Unicorn Learning Lab emblem: a unicorn rising from an open book'}
@@ -20,7 +20,7 @@ export function Emblem({ size = 96, className = 'brand-emblem', eager = false, d
 /* Logo link used in the header and footer: the emblem with the name beside it. */
 export function BrandLink({ current = false, eager = false }) {
   return (
-    <a className="brand" href="/" aria-current={current ? 'page' : undefined}>
+    <a className="brand" href={url('/')} aria-current={current ? 'page' : undefined}>
       <Emblem size={96} eager={eager} className="" />
       <span className="brand__name">{SITE_NAME}</span>
     </a>

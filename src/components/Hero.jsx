@@ -1,6 +1,7 @@
 import { ChevronRight, FlaskConical, Lightbulb, Rocket, Sparkles } from 'lucide-react'
 import { Arrow, Emblem, Ambient, Star, SplitWords } from './Brand.jsx'
 import Photo from './Photo.jsx'
+import { url } from '../data/site.js'
 
 /* The emblem on its stage: orbit rings, a glow and floating principle chips. */
 export function EmblemStage({ chips = true, className = 'hero__visual' }) {
@@ -57,7 +58,7 @@ export default function Hero({ kicker, title, lead, primary, secondary, visual =
         <div className="page-hero__copy">
           {kicker && (
             <nav className="crumbs enter" aria-label="Breadcrumb">
-              <a href="/">Home</a>
+              <a href={url('/')}>Home</a>
               <ChevronRight aria-hidden="true" />
               <span aria-current="page">{kicker}</span>
             </nav>

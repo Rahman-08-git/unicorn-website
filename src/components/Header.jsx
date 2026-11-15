@@ -1,15 +1,15 @@
 import { useEffect, useRef, useState } from 'react'
 import { ArrowRight, ChevronDown, Menu, X } from 'lucide-react'
-import { NAV, MAIN_ACTION } from '../data/site.js'
+import { NAV, MAIN_ACTION, url } from '../data/site.js'
 import { PHOTOS } from '../data/photos.js'
 import { BrandLink, Arrow } from './Brand.jsx'
 
 /* The panel under "What we do": four kinds of experience with a photograph each. */
 const MENU = [
-  { href: '/what-we-do/#workshops', title: 'Workshops', line: 'For classes, schools and groups', photo: PHOTOS.microscope },
-  { href: '/what-we-do/#hands-on', title: 'Hands-on activities', line: 'Build, test and take apart', photo: PHOTOS.circuit },
-  { href: '/what-we-do/#creative', title: 'Creative learning', line: 'Design, draw and make', photo: PHOTOS.pencilWheel },
-  { href: '/what-we-do/#technology', title: 'Technology learning', line: 'Circuits, code and tools', photo: PHOTOS.soldering },
+  { href: url('/what-we-do/#workshops'), title: 'Workshops', line: 'For classes, schools and groups', photo: PHOTOS.microscope },
+  { href: url('/what-we-do/#hands-on'), title: 'Hands-on activities', line: 'Build, test and take apart', photo: PHOTOS.circuit },
+  { href: url('/what-we-do/#creative'), title: 'Creative learning', line: 'Design, draw and make', photo: PHOTOS.pencilWheel },
+  { href: url('/what-we-do/#technology'), title: 'Technology learning', line: 'Circuits, code and tools', photo: PHOTOS.soldering },
 ]
 
 export default function Header({ page, light = false }) {
@@ -77,7 +77,7 @@ export default function Header({ page, light = false }) {
                           </span>
                         </a>
                       ))}
-                      <a className="mega__all" href="/what-we-do/">
+                      <a className="mega__all" href={url('/what-we-do/')}>
                         See all five kinds of experience <ArrowRight aria-hidden="true" />
                       </a>
                     </div>

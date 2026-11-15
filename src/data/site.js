@@ -14,6 +14,13 @@
   SOCIAL_LINKS: empty until real account URLs are supplied, e.g.
   { label: 'Instagram', href: 'https://www.instagram.com/<account>/' }
 */
+/*
+  BASE is where the site lives: '/' on its own domain, '/<repo>/' on GitHub Pages.
+  Vite sets it from the build's base path. url('/about/') gives the right link for either.
+*/
+export const BASE = import.meta.env.BASE_URL
+export const url = (path) => BASE + path.replace(/^\//, '')
+
 export const SITE_NAME = 'Unicorn Learning Lab'
 export const CONTACT_EMAIL = 'hello@unicornlearninglab.example'
 export const FORM_ENDPOINT = null
@@ -23,10 +30,10 @@ export const mailto = (subject) =>
   `mailto:${CONTACT_EMAIL}${subject ? `?subject=${encodeURIComponent(subject)}` : ''}`
 
 export const NAV = [
-  { id: 'home', label: 'Home', href: '/' },
-  { id: 'about', label: 'About', href: '/about/' },
-  { id: 'approach', label: 'Our approach', href: '/our-approach/' },
-  { id: 'what-we-do', label: 'What we do', href: '/what-we-do/' },
+  { id: 'home', label: 'Home', href: url('/') },
+  { id: 'about', label: 'About', href: url('/about/') },
+  { id: 'approach', label: 'Our approach', href: url('/our-approach/') },
+  { id: 'what-we-do', label: 'What we do', href: url('/what-we-do/') },
 ]
 
-export const MAIN_ACTION = { label: 'Contact us', href: '/contact/' }
+export const MAIN_ACTION = { label: 'Contact us', href: url('/contact/') }

@@ -1,4 +1,4 @@
-import { NAV, MAIN_ACTION, SITE_NAME, SOCIAL_LINKS } from '../data/site.js'
+import { NAV, MAIN_ACTION, SITE_NAME, SOCIAL_LINKS, url } from '../data/site.js'
 import { BrandLink, Arrow, Ambient, Emblem } from './Brand.jsx'
 
 const COLUMNS = [
@@ -69,7 +69,7 @@ export default function Footer({ close }) {
                 ))}
               </div>
             )}
-            <a href="/credits/">Photographs via Wikimedia Commons</a>
+            <a href={url('/credits/')}>Photographs via Wikimedia Commons</a>
           </div>
           <p className="footer__big" aria-hidden="true">
             Don’t just learn.
